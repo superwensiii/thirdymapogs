@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #1D202D; 
+            font-family: Arial, sans-serif;
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .sidebar {
+            background-color: black;
+            color: white;
+            width: 250px;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+            border-radius: 30px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+
+        .sidebar .active {
+            background-color: gray;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: transparent;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .profile-section img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .profile-section span {
+            color: white;
+            font-weight: bold;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .welcome-message {
+            background-color: #4951;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            background-color: #4951;
+            color: white;
+        }
+
+        .card-body {
+            background-color: #4951;
+        }
+
+        @media (max-width: 767px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .profile-section {
+                justify-content: center;
+            }
+
+            
+        
+        }
+        .btn-gray {
+            background-color: gray;
+            border-color: gray;
+            color: white;
+        }
+        .theme-toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            color: #EBEBFF;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .theme-toggle-btn.light {
+            color: #1D202D; /* Icon color for light theme */
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle-btn" class="theme-toggle-btn">
+        🌙
+    </button>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <img src="https://via.placeholder.com/40" alt="Profile Icon">
+            <span>Thirdy Magsalsal</span>
+        </div>
+
+        
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">My Tasks</a>
+        <a href="#">Settings</a>
+        <a href="index.html">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="welcome-message">
+            <h2>Welcome, Thirdy Magsalsal</h2>
+            <p>Here's your dashboard overview.</p>
+        </div>
+
+        <div class="row mt-4">
+            <!-- Task Overview Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Task Overview</h5>
+                        <p class="card-text">View and manage your assigned tasks.</p>
+                        <a href="#" class="btn btn-gray">View Tasks</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Settings Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Profile Settings</h5>
+                        <p class="card-text">Update your personal details and settings.</p>
+                        <a href="#" class="btn btn-gray">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Notifications</h5>
+                        <p class="card-text">View recent updates and notifications.</p>
+                        <a href="#" class="btn btn-gray">View Notifications</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const themeToggleButton = document.getElementById('theme-toggle-btn');
+        let isDarkTheme = true; // Default to dark theme
+
+        themeToggleButton.addEventListener('click', () => {
+            document.body.style.backgroundColor = isDarkTheme ? '#FFFFFF' : '#1D202D';
+            document.body.style.color = isDarkTheme ? '#1D202D' : '#EBEBFF';
+            themeToggleButton.textContent = isDarkTheme ? '☀️' : '🌙';
+            themeToggleButton.classList.toggle('light', isDarkTheme);
+            isDarkTheme = !isDarkTheme;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
